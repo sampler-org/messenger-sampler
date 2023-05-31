@@ -34,7 +34,7 @@ const AuthForm = () => {
         }
     });
 
-    const onSubmit: SubmitHandler<FieldValues> = () => {
+    const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
 
         if (variant === 'REGISTER') {
@@ -76,10 +76,10 @@ const AuthForm = () => {
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     {variant === 'REGISTER' && (
-                        <Input id="name" label="Name" register={register} errors={errors}/>
+                        <Input id="name" label="Name" register={register} errors={errors} disabled={isLoading}/>
                     )}
-                    <Input id="email" label="Email" type="email" register={register} errors={errors}/>
-                    <Input id="password" label="Password" type="password" register={register} errors={errors}/>
+                    <Input id="email" label="Email" type="email" register={register} errors={errors} disabled={isLoading}/>
+                    <Input id="password" label="Password" type="password" register={register} errors={errors} disabled={isLoading}/>
                     <Button
                         disabled={isLoading}
                         fullWith
